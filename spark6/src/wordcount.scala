@@ -14,6 +14,12 @@ object wordcount {
     val rdd1=rdd.flatMap(x=>x.split(" ")).map(x=>(x,1)).reduceByKey((x,y)=>x+y)
     rdd1.foreach(println)
     
+    println("2nd wordcount")
+    
+     val rdd2=sc.textFile("F:\\data\\wordcount1.txt")
+    val rdd3=rdd2.flatMap(x=>x.split(",")).map(x=>(x,1)).reduceByKey((x,y)=>x+y)
+     rdd3.foreach(println)
+    
    }
   
 }
